@@ -1,0 +1,22 @@
+{
+  "name": "azure-download-secure-files-tests",
+  "version": "1.0.0",
+  "description": "Azure Pipelines Download Multiple Secure Files Task Tests",
+  "main": "L0.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aochmann/azure-download-secure-files.git"
+  },
+  "author": "Adrian Ochmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aochmann/azure-download-secure-files/issues"
+  },
+  "homepage": "https://github.com/aochmann/azure-download-secure-files#readme",
+  "devDependencies": {
+    "@types/mocha": "^7.0.2"
+  }
+}

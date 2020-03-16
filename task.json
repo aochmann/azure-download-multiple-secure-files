@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "2b1ae9cd-0a4f-4059-b563-61ae159f7496",
+  "name": "DownloadMultipleSecureFiles",
+  "friendlyName": "Download multiple secure files",
+  "description": "Download multiple secure files to the agent machine",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "author": "Adrian Ochmann",
+  "version": {
+    "Major": 0,
+    "Minor": 1,
+    "Patch": 0
+  },
+  "visibility": ["Build", "Release"],
+  "runsOn": ["Agent", "DeploymentGroup"],
+  "instanceNameFormat": "Download multiple secure files",
+  "inputs": [
+    {
+      "name": "secureFiles",
+      "type": "multiLine",
+      "label": "Secure Files",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The file name or GUID of the secure files to download to the agent machine. The files will be deleted after the pipeline runs."
+    },
+    {
+      "name": "retryCount",
+      "type": "string",
+      "label": "Retry Count",
+      "defaultValue": "5",
+      "required": "false",
+      "helpMarkDown": "Optional number of times to retry downloading a secure file if the download fails."
+    }
+  ],
+  "OutputVariables": [
+    {
+      "name": "secureFilePaths",
+      "description": "The location of the secure files that was downloaded."
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "preDownloadMultipleSecureFiles.js"
+    }
+  },
+  "messages": {}
+}
