@@ -4,7 +4,7 @@
   "description": "Azure Pipelines Download Multiple Secure Files Task",
   "main": "preDownloadMultipleSecureFiles.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register ./Tests/L0.ts"
   },
   "repository": {
     "type": "git",
@@ -27,8 +27,13 @@
     "azure-pipelines-task-lib": "^2.9.3"
   },
   "devDependencies": {
+    "@types/mocha": "^7.0.2",
     "@types/node": "^13.9.1",
     "@types/q": "^1.5.2",
-    "securefiles-common": "file:./_build/Tasks/Common/securefiles-common-1.0.0.tgz"
+    "mocha": "^7.1.0",
+    "securefiles-common": "file:./_build/Tasks/Common/securefiles-common-1.0.0.tgz",
+    "sync-request": "^6.1.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
   }
 }

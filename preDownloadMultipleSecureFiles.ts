@@ -34,4 +34,4 @@ async function downloadSecureFiles(secureFiles: Array<string>, retryCount: numbe
   return await Promise.all<string>(results);
 }
 
-await run();
+run();
