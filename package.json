@@ -4,7 +4,10 @@
   "description": "Azure Pipelines Download Multiple Secure Files Task",
   "main": "preDownloadMultipleSecureFiles.js",
   "scripts": {
-    "test": "mocha -r ts-node/register ./Tests/L0.ts"
+    "clean": "rimraf _build _tests",
+    "build-test": "tsc --p tsconfig.test.json",
+    "build": "npm run clean && tsc",
+    "tests": "npm run clean && npm run build-test && SET TS_NODE_PROJECT=tsconfig.test.json&&SET BABEL_ENV=test&& mocha --opts mocha-build.opts"
   },
   "repository": {
     "type": "git",
@@ -27,10 +30,16 @@
     "azure-pipelines-task-lib": "^2.9.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/register": "^7.8.6",
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.9.1",
     "@types/q": "^1.5.2",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-require": "^1.0.1",
     "mocha": "^7.1.0",
+    "rimraf": "^3.0.2",
     "securefiles-common": "file:./_build/Tasks/Common/securefiles-common-1.0.0.tgz",
     "sync-request": "^6.1.0",
     "ts-node": "^8.6.2",

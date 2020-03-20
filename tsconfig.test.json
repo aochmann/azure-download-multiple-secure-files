@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "./_tests",
+    "sourceMap": false,
+    "strict": false,
+    // "noImplicitAny": true,
+    // "strictNullChecks": true,
+    // "strictFunctionTypes": false,
+    // "noImplicitThis": false,
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": [
+    "preDownloadMultipleSecureFiles.ts",
+    "Tests/**/*.ts"
+  ]
+}
