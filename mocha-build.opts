@@ -4,3 +4,6 @@
 --timeout 999999
 --colors
 # --recursive
+
+#--reporter  xunit
+#--reporter-option   output=tmp/reports/L0.reports.dat

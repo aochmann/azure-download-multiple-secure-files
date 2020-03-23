@@ -1,18 +1,18 @@
 import { TaskLibAnswers } from 'azure-pipelines-task-lib/mock-answer';
 import { TaskMockRunner } from 'azure-pipelines-task-lib/mock-run';
-
-const secureFileHelperMock = require('securefiles-common/securefiles-common-mock');
-const path = require('path');
+import * as path from 'path';
 
 const taskPath = path.join(__dirname, '..', 'preDownloadMultipleSecureFiles.js');
 const mockTaskRunner: TaskMockRunner = new TaskMockRunner(taskPath);
 
 mockTaskRunner.setInput('secureFiles', 'single-secure-file-id');
 
+const secureFileHelperMock = require('securefiles-common/securefiles-common-mock');
 mockTaskRunner.registerMock('securefiles-common/securefiles-common', secureFileHelperMock);
 
 mockTaskRunner.registerMock('fs', {
-  writeFileSync: (filePath, contents) => null
+  // @ts-ignore
+  writeFileSync: (filePath, contents) => {}
 });
 
 let answer: TaskLibAnswers = {
