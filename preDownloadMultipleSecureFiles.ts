@@ -15,7 +15,8 @@ const main = async () => {
 
     const secureFiles: string[] = getSecureFiles();
     const secureFilesPath: string[] = await downloadSecureFiles(secureFiles, retryCount);
-    const secureFilePathsOutput: string = secureFilesPath.filter(secureFilePath => tl.exist(secureFilePath)).join(',');
+    const existingSecureFilePath: string[] = getExistingSecureFile(secureFilesPath);
+    const secureFilePathsOutput: string = getSecureFilePathsOutput(existingSecureFilePath);
 
     tl.setVariable('secureFilePaths', secureFilePathsOutput);
   } catch (err) {
@@ -23,14 +24,31 @@ const main = async () => {
   }
 };
 
-function getSecureFiles(): Array<string> {
-  return tl.getDelimitedInput('secureFiles', '\n', true);
+const getSecureFiles = (): Array<string> => {
+  const newLineDelimiter: string = '\n';
+  const commaDelimiter: string = ',';
+
+  let secureFiles: Array<string> = tl.getDelimitedInput('secureFiles', newLineDelimiter, true);
+
+  if (secureFiles !== null && (secureFiles.length <= 0 || (secureFiles.length == 1 && secureFiles[0].includes(commaDelimiter)))) {
+    secureFiles = tl.getDelimitedInput('secureFiles', commaDelimiter, true);
+  }
+
+  return secureFiles.map(secureFile => secureFile.replace(/\s/g, ''));
 }
 
-async function downloadSecureFiles(secureFiles: Array<string>, retryCount: number = 5): Promise<Array<string>> {
+const downloadSecureFiles = async (secureFiles: Array<string>, retryCount: number = 5): Promise<Array<string>> => {
   const secureFileHelpers: secureFilesCommon.SecureFileHelpers = new secureFilesCommon.SecureFileHelpers(retryCount);
   const results: Promise<string>[] = secureFiles.map(async secureFile => (await secureFileHelpers.downloadSecureFile(secureFile)) as string);
   return await Promise.all<string>(results);
+}
+
+const getExistingSecureFile = (secureFilesPath: Array<string>): Array<string> => {
+  return secureFilesPath.filter(secureFilePath => tl.exist(secureFilePath));
+}
+
+const getSecureFilePathsOutput = (secureFilesPath: Array<string>): string => {
+  return secureFilesPath.join(',');
 }
 
 main();
