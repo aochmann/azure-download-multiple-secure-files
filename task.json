@@ -22,21 +22,21 @@
       "label": "Secure Files",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The file name or GUID of the secure files to download to the agent machine. The files will be deleted after the pipeline runs."
+      "helpMarkDown": "The file names or GUID's of the secure files to download into the agent machine. The files will be deleted after the pipeline runs. Each filename needs to be placed in the new line or as comma separated values."
     },
     {
       "name": "retryCount",
       "type": "string",
       "label": "Retry Count",
       "defaultValue": "5",
-      "required": "false",
+      "required": false,
       "helpMarkDown": "Optional number of times to retry downloading a secure file if the download fails."
     }
   ],
   "OutputVariables": [
     {
       "name": "secureFilePaths",
-      "description": "The location of the secure files that was downloaded."
+      "description": "The location of the secure files that was downloaded separated by comma."
     }
   ],
   "execution": {
