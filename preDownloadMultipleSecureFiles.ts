@@ -2,6 +2,9 @@ import path = require('path');
 import tl = require('azure-pipelines-task-lib/task');
 import secureFilesCommon = require('securefiles-common/securefiles-common');
 
+const commaDelimiter: string = ',';
+const newLineDelimiter: string = '\n';
+
 const main = async () => {
   try {
     tl.setResourcePath(path.join(__dirname, 'task.json'));
@@ -25,9 +28,6 @@ const main = async () => {
 };
 
 const getSecureFiles = (): Array<string> => {
-  const newLineDelimiter: string = '\n';
-  const commaDelimiter: string = ',';
-
   let secureFiles: Array<string> = tl.getDelimitedInput('secureFiles', newLineDelimiter, true);
 
   if (secureFiles !== null && (secureFiles.length <= 0 || (secureFiles.length == 1 && secureFiles[0].includes(commaDelimiter)))) {
@@ -43,12 +43,8 @@ const downloadSecureFiles = async (secureFiles: Array<string>, retryCount: numbe
   return await Promise.all<string>(results);
 }
 
-const getExistingSecureFile = (secureFilesPath: Array<string>): Array<string> => {
-  return secureFilesPath.filter(secureFilePath => tl.exist(secureFilePath));
-}
+const getExistingSecureFile = (secureFilesPath: Array<string>): Array<string> => secureFilesPath.filter(secureFilePath => tl.exist(secureFilePath));
 
-const getSecureFilePathsOutput = (secureFilesPath: Array<string>): string => {
-  return secureFilesPath.join(',');
-}
+const getSecureFilePathsOutput = (secureFilesPath: Array<string>): string => secureFilesPath.join(commaDelimiter);
 
 main();
