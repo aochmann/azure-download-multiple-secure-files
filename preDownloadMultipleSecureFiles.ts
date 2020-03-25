@@ -24,19 +24,17 @@ const main = async () => {
 const getRetryCount = (): number => {
   let retryCount: number = parseInt(tl.getInput('retryCount') as string);
 
-    if (isNaN(retryCount) || retryCount < 0) {
-      retryCount = 5;
-    }
+  if (isNaN(retryCount) || retryCount < 0) {
+    retryCount = 5;
+  }
 
-    return retryCount;
+  return retryCount;
 };
 
 const getSecureFiles = (): Array<string> => {
   let secureFiles: Array<string> = getSecureFilesWithNewLineDelimiter();
 
-  secureFiles = hasCommaSeparatedValues(secureFiles)
-    ? getSecureFilesWithCommaDelimiter()
-    : secureFiles;
+  secureFiles = hasCommaSeparatedValues(secureFiles) ? getSecureFilesWithCommaDelimiter() : secureFiles;
 
   return getSecureFilePathsWithoutWhitespace(secureFiles);
 };
@@ -45,8 +43,8 @@ const getSecureFilesWithNewLineDelimiter = (): Array<string> => tl.getDelimitedI
 
 const getSecureFilesWithCommaDelimiter = (): Array<string> => tl.getDelimitedInput('secureFiles', commaDelimiter, true);
 
-const hasCommaSeparatedValues = (secureFiles: Array<string>): boolean => secureFiles !== null
-  && (secureFiles.length <= 0 || (secureFiles.length == 1 && secureFiles[0].includes(commaDelimiter)));
+const hasCommaSeparatedValues = (secureFiles: Array<string>): boolean =>
+  secureFiles !== null && (secureFiles.length <= 0 || (secureFiles.length == 1 && secureFiles[0].includes(commaDelimiter)));
 
 const getSecureFilePathsWithoutWhitespace = (secureFilesPath: Array<string>): Array<string> => {
   return secureFilesPath.map(secureFilePath => secureFilePath.trim());
