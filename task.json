@@ -36,7 +36,7 @@
   "OutputVariables": [
     {
       "name": "secureFilePaths",
-      "description": "The location of the secure files that was downloaded separated by comma."
+      "description": "The location of the secure files that was downloaded separated by comma separated values."
     }
   ],
   "execution": {
