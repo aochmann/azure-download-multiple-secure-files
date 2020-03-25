@@ -9,7 +9,7 @@ const main = async () => {
   try {
     tl.setResourcePath(path.join(__dirname, 'task.json'));
 
-    let retryCount: number = getRetryCount();
+    const retryCount: number = getRetryCount();
     const secureFiles: string[] = getSecureFiles();
     const secureFilesPath: string[] = await downloadSecureFiles(secureFiles, retryCount);
     const existingSecureFilePath: string[] = getExistingSecureFile(secureFilesPath);
