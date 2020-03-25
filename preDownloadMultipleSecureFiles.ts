@@ -27,14 +27,21 @@ const main = async () => {
 };
 
 const getSecureFiles = (): Array<string> => {
-  let secureFiles: Array<string> = tl.getDelimitedInput('secureFiles', newLineDelimiter, true);
+  let secureFiles: Array<string> = getSecureFilesWithNewLineDelimiter();
 
-  if (secureFiles !== null && (secureFiles.length <= 0 || (secureFiles.length == 1 && secureFiles[0].includes(commaDelimiter)))) {
-    secureFiles = tl.getDelimitedInput('secureFiles', commaDelimiter, true);
-  }
+  secureFiles = hasCommaSeparatedValues(secureFiles)
+    ? getSecureFilesWithCommaDelimiter()
+    : secureFiles;
 
   return getSecureFilePathsWithoutWhitespace(secureFiles);
 }
+
+const getSecureFilesWithNewLineDelimiter = (): Array<string> => tl.getDelimitedInput('secureFiles', newLineDelimiter, true);
+
+const getSecureFilesWithCommaDelimiter = (): Array<string> => tl.getDelimitedInput('secureFiles', commaDelimiter, true);
+
+const hasCommaSeparatedValues = (secureFiles: Array<string>): boolean => secureFiles !== null
+  && (secureFiles.length <= 0 || (secureFiles.length == 1 && secureFiles[0].includes(commaDelimiter)));
 
 const getSecureFilePathsWithoutWhitespace = (secureFilesPath: Array<string>): Array<string> => {
   return secureFilesPath.map(secureFilePath => secureFilePath.trim());
