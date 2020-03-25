@@ -12,7 +12,6 @@ const main = async () => {
     let retryCount: number = parseInt(tl.getInput('retryCount') as string);
 
     if (isNaN(retryCount) || retryCount < 0) {
-      console.log('yes we have nan');
       retryCount = 5;
     }
 
