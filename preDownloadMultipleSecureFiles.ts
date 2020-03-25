@@ -33,7 +33,11 @@ const getSecureFiles = (): Array<string> => {
     secureFiles = tl.getDelimitedInput('secureFiles', commaDelimiter, true);
   }
 
-  return secureFiles.map(secureFile => secureFile.replace(/\s/g, ''));
+  return getSecureFilePathsWithoutWhitespace(secureFiles);
+}
+
+const getSecureFilePathsWithoutWhitespace = (secureFilesPath: Array<string>): Array<string> => {
+  return secureFilesPath.map(secureFilePath => secureFilePath.trim());
 }
 
 const downloadSecureFiles = async (secureFiles: Array<string>, retryCount: number = 5): Promise<Array<string>> => {
