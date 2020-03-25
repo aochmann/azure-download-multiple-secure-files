@@ -1,8 +1,0 @@
-{
-  "loc.friendlyName": "Sichere Datei herunterladen",
-  "loc.helpMarkDown": "[Weitere Informationen](https://go.microsoft.com/fwlink/?LinkID=862069)",
-  "loc.description": "Hiermit wird eine sichere Datei an einen temporären Speicherort auf dem Agent-Computer heruntergeladen.",
-  "loc.instanceNameFormat": "Sichere Datei herunterladen",
-  "loc.input.label.secureFile": "Sichere Datei",
-  "loc.input.help.secureFile": "Wählen Sie die sichere Datei aus, die in einen temporären Speicherort auf dem Agent heruntergeladen werden soll. Die Datei wird nach der Pipelineausführung bereinigt."
-}

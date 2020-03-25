@@ -1,10 +1,12 @@
 {
-  "loc.friendlyName": "Download secure file",
-  "loc.helpMarkDown": "[Learn more about this task](https://go.microsoft.com/fwlink/?LinkID=862069)",
-  "loc.description": "Download a secure file to the agent machine",
-  "loc.instanceNameFormat": "Download secure file",
-  "loc.input.label.secureFile": "Secure File",
-  "loc.input.help.secureFile": "The file name or GUID of the secure file to download to the agent machine. The file will be deleted after the pipeline runs."
+  "loc.friendlyName": "Download multiple secure files",
+  "loc.helpMarkDown": "",
+  "loc.description": "Download multiple secure files to the agent machine",
+  "loc.instanceNameFormat": "Download Multiple Secure Files",
+  "loc.input.label.secureFiles": "Secure File",
+  "loc.input.help.secureFiles": "The file names or GUID's of the secure files to download into the agent machine. The files will be deleted after the pipeline runs. Each filename needs to be placed in the new line or as comma separated values."
   "loc.input.label.retryCount": "Retry Count",
-  "loc.input.help.retryCount": "Optional number of times to retry downloading a secure file if the download fails."
+  "loc.input.help.retryCount": "Optional number of times to retry downloading a secure file if the download fails.",
+  "loc.output.label.secureFilePaths": "secureFilePaths",
+  "loc.output.label.secureFilePaths": "The location of the secure files that was downloaded separated by comma separated values.",
 }
