@@ -30,7 +30,7 @@
   "homepage": "https://github.com/aochmann/azure-download-secure-files#readme",
   "dependencies": {
     "azure-pipelines-task-lib": "^2.9.3",
-    "securefiles-common": "file:./_build/Tasks/Common/securefiles-common-1.0.0.tgz"
+    "securefiles-common": "file:./Dependencies/securefiles-common-1.0.0.tgz"
   },
   "devDependencies": {
     "@types/mocha": "^7.0.2",

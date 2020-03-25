@@ -181,5 +181,5 @@ $RECYCLE.BIN/
 .taskkey
 
 
-download-multiple-secure-files-task/_build/**/*.*
-download-multiple-secure-files-task/_tests/**/*.*
+_build/**/*.*
+_tests/**/*.*
