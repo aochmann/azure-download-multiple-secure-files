@@ -1,0 +1,54 @@
+{
+  "manifestVersion": 1,
+  "id": "download-multiple-secure-files",
+  "name": "Download multiple secure files",
+  "version": "1.1.4",
+  "publisher": "Cogworks",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Download multiple secure files to the agent machine.",
+  "categories": ["Azure Pipelines"],
+  "branding": {
+    "color": "rgb(255, 255, 255)",
+    "theme": "light"
+  },
+  "content": {
+    "details": {
+      "path": "download-multiple-secure-files-extension/readme.md"
+    },
+    "license": {
+      "path": "download-multiple-secure-files-extension/license.txt"
+    }
+  },
+  "icons": {
+    "default": "download-multiple-secure-files-extension/images/icon-large.png"
+  },
+  "files": [
+    {
+      "path": "download-multiple-secure-files-task/_build",
+      "addressable": true
+    }
+  ],
+  "links": {
+    "support": {
+      "uri": "https://github.com/aochmann/azure-download-multiple-secure-files"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aochmann/azure-download-multiple-secure-files"
+  },
+  "contributions": [
+    {
+      "id": "download-multiple-secure-files-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "download-multiple-secure-files-task"
+      }
+    }
+  ]
+}

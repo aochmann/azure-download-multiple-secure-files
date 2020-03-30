@@ -1,0 +1,39 @@
+{
+  "name": "azure-download-secure-files-tests",
+  "version": "1.1.0",
+  "description": "Azure Pipelines Download Multiple Secure Files Task Tests",
+  "main": "L0.js",
+  "scripts": {
+    "clean": "rimraf ./_tests",
+    "test-copy-dependencies": "bash ./copy-dependencies.sh",
+    "build-test": "tsc --p ./tsconfig.test.json",
+    "tests": "npm run clean && npm run build-test && npm run test-copy-dependencies && SET TS_NODE_PROJECT=tsconfig.test.json&&SET BABEL_ENV=test&& mocha --opts mocha-build.opts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aochmann/azure-download-multiple-secure-files.git"
+  },
+  "author": "Adrian Ochmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aochmann/azure-download-multiple-secure-files/issues"
+  },
+  "homepage": "https://github.com/aochmann/azure-download-multiple-secure-files#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.9.1",
+    "@types/q": "^1.5.2",
+    "mocha": "^7.1.1",
+    "rimraf": "^3.0.2",
+    "sync-request": "^6.1.0"
+  },
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.9.3",
+    "securefiles-common": "file:./../_build/Tasks/Common/securefiles-common-1.0.0.tgz"
+  }
+}

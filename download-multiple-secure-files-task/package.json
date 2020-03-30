@@ -1,0 +1,38 @@
+{
+  "name": "azure-download-multiple-secure-files",
+  "version": "1.1.0",
+  "description": "Azure Pipelines Download Multiple Secure Files Task",
+  "main": "./_build/preDownloadMultipleSecureFiles.js",
+  "scripts": {
+    "clean": "rm -rf _build",
+    "build-copy-dependencies": "bash copy-dependencies.sh",
+    "build:dependencies": "bash build-dependencies.sh",
+    "build:ts": "tsc --p ./tsconfig.json",
+    "build": "npm run clean && npm run build:ts && npm run build-copy-dependencies && npm run build:dependencies",
+    "build:js": "babel preDownloadMultipleSecureFiles.ts --out-dir _build --extensions \".ts,.tsx\" --source-maps inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aochmann/azure-download-multiple-secure-files.git"
+  },
+  "keywords": [
+    "Azure",
+    "VSTS",
+    "DevOps",
+    "Secure Files",
+    "Download Multiple Secure Files"
+  ],
+  "author": "Adrian Ochmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aochmann/azure-download-multiple-secure-files/issues"
+  },
+  "homepage": "https://github.com/aochmann/azure-download-multiple-secure-files#readme",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.9.3",
+    "securefiles-common": "file:./Dependencies/securefiles-common-1.0.0.tgz",
+    "@types/node": "^13.9.1",
+    "ts-node": "^8.6.2",
+    "@types/q": "^1.5.2"
+  }
+}

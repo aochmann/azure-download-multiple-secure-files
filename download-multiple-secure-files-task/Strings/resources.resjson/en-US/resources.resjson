@@ -4,7 +4,7 @@
   "loc.description": "Download multiple secure files to the agent machine",
   "loc.instanceNameFormat": "Download Multiple Secure Files",
   "loc.input.label.secureFiles": "Secure File",
-  "loc.input.help.secureFiles": "The file names or GUID's of the secure files to download into the agent machine. The files will be deleted after the pipeline runs. Each filename needs to be placed in the new line or as comma separated values."
+  "loc.input.help.secureFiles": "The file names or GUID's of the secure files to download into the agent machine. The files will be deleted after the pipeline runs. Each filename needs to be placed as comma separated values."
   "loc.input.label.retryCount": "Retry Count",
   "loc.input.help.retryCount": "Optional number of times to retry downloading a secure file if the download fails.",
   "loc.output.label.secureFilePaths": "secureFilePaths",

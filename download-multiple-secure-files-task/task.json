@@ -8,21 +8,22 @@
   "category": "Utility",
   "author": "Adrian Ochmann",
   "version": {
-    "Major": 0,
+    "Major": 1,
     "Minor": 1,
-    "Patch": 0
+    "Patch": 4
   },
-  "visibility": ["Build", "Release"],
-  "runsOn": ["Agent", "DeploymentGroup"],
+  "visibility": ["Build"],
+  "runsOn": ["Agent", "DeploymentGroup", "Server", "MachineGroup"],
+  "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "Download multiple secure files",
   "inputs": [
     {
       "name": "secureFiles",
-      "type": "multiLine",
+      "type": "secureFile",
       "label": "Secure Files",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The file names or GUID's of the secure files to download into the agent machine. The files will be deleted after the pipeline runs. Each filename needs to be placed in the new line or as comma separated values."
+      "helpMarkDown": "The file names or GUID's of the secure files to download into the agent machine. The files will be deleted after the pipeline runs. Each filename needs to be placed as comma separated values."
     },
     {
       "name": "retryCount",
@@ -30,7 +31,7 @@
       "label": "Retry Count",
       "defaultValue": "5",
       "required": false,
-      "helpMarkDown": "Optional number of times to retry downloading a secure file if the download fails."
+      "helpMarkDown": "Number of times to retry downloading a secure files if the download fails (optional, default: 5)."
     }
   ],
   "OutputVariables": [

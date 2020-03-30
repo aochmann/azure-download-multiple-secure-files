@@ -2,45 +2,17 @@
   "name": "azure-download-multiple-secure-files",
   "version": "1.0.0",
   "description": "Azure Pipelines Download Multiple Secure Files Task",
-  "main": "preDownloadMultipleSecureFiles.js",
   "scripts": {
-    "clean": "rimraf _build _tests",
-    "build-copy-dependencies": "copyfiles task.json ./_build",
-    "test-copy-dependencies": "copyfiles task.json ./_tests",
-    "build-test": "tsc --p tsconfig.test.json",
-    "build": "npm run clean && tsc && npm run build-copy-dependencies",
-    "tests": "npm run clean && npm run build-test && npm run test-copy-dependencies && SET TS_NODE_PROJECT=tsconfig.test.json&&SET BABEL_ENV=test&& mocha --opts mocha-build.opts"
+    "package-extension": "cd download-multiple-secure-files-task && npm run build && cd .. && tfx extension create --manifests azure-devops-extension.json --output-path Release",
+    "publish-extension": "tfx extension publish --manifests azure-devops-extension.json"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aochmann/azure-download-secure-files.git"
-  },
-  "keywords": [
-    "Azure",
-    "VSTS",
-    "DevOps",
-    "Secure Files",
-    "Download Multiple Secure Files"
-  ],
   "author": "Adrian Ochmann",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aochmann/azure-download-secure-files/issues"
+    "url": "https://github.com/aochmann/azure-download-multiple-secure-files/issues"
   },
-  "homepage": "https://github.com/aochmann/azure-download-secure-files#readme",
-  "dependencies": {
-    "azure-pipelines-task-lib": "^2.9.3",
-    "securefiles-common": "file:./_build/Tasks/Common/securefiles-common-1.0.0.tgz"
-  },
+  "homepage": "https://github.com/aochmann/azure-download-multiple-secure-files#readme",
   "devDependencies": {
-    "@types/mocha": "^7.0.2",
-    "@types/node": "^13.9.1",
-    "@types/q": "^1.5.2",
-    "copyfiles": "^2.2.0",
-    "mocha": "^7.1.0",
-    "rimraf": "^3.0.2",
-    "sync-request": "^6.1.0",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.8.3"
+    "tfx-cli": "^0.7.11"
   }
 }
