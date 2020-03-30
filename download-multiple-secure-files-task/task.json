@@ -31,7 +31,7 @@
       "label": "Retry Count",
       "defaultValue": "5",
       "required": false,
-      "helpMarkDown": "Optional number of times to retry downloading a secure file if the download fails."
+      "helpMarkDown": "Number of times to retry downloading a secure files if the download fails (optional, default: 5)."
     }
   ],
   "OutputVariables": [
