@@ -1,0 +1,18 @@
+{
+  "name": "azure-download-multiple-secure-files",
+  "version": "1.0.0",
+  "description": "Azure Pipelines Download Multiple Secure Files Task",
+  "scripts": {
+    "package-extension": "tfx extension create --manifests azure-devops-extension.json --output-path Release",
+    "publish-extension": "tfx extension publish --manifests azure-devops-extension.json"
+  },
+  "author": "Adrian Ochmann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aochmann/azure-download-multiple-secure-files/issues"
+  },
+  "homepage": "https://github.com/aochmann/azure-download-multiple-secure-files#readme",
+  "devDependencies": {
+    "tfx-cli": "^0.7.11"
+  }
+}

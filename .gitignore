@@ -182,4 +182,7 @@ $RECYCLE.BIN/
 
 
 download-multiple-secure-files-task/_build/**/*.*
+download-multiple-secure-files-task/_build_declaration/**/*.*
 download-multiple-secure-files-task/_tests/**/*.*
+Release/**/*.*
+config.json

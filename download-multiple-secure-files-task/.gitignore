@@ -182,4 +182,4 @@ $RECYCLE.BIN/
 
 
 _build/**/*.*
-_tests/**/*.*
+Tests/_tests/**/*.*

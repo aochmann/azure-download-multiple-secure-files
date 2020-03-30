@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./../tsconfig.json",
   "compilerOptions": {
     "target": "es2016",
     "outDir": "./_tests",
@@ -11,10 +11,13 @@
     "noImplicitThis": false,
     "allowJs": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "declaration": false,
+    "declarationDir": null
   },
   "include": [
-    "preDownloadMultipleSecureFiles.ts",
-    "Tests/**/*.ts"
-  ]
+    "./../preDownloadMultipleSecureFiles.ts",
+    "./**/*.ts"
+  ],
+  "exclude": ["node_modules"]
 }

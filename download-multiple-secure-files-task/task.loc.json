@@ -1,0 +1,58 @@
+{
+    "id": "2b1ae9cd-0a4f-4059-b563-61ae159f7496",
+    "name": "DownloadMultipleSecureFiles",
+    "friendlyName": "ms-resource:loc.friendlyName",
+    "description": "ms-resource:loc.description",
+    "helpUrl": "ms-resource:loc.helpUrl",
+    "helpMarkDown": "ms-resource:loc.helpMarkDown",
+    "category": "Utility",
+    "visibility": [
+      "Build",
+      "Release"
+    ],
+    "author": "Microsoft Corporation",
+    "version": {
+      "Major": 1,
+      "Minor": 0,
+      "Patch": 13
+    },
+    "runsOn": [
+      "Agent", 
+      "DeploymentGroup",
+      "Server",
+      "MachineGroup"
+    ],
+    "demands": [],
+    "minimumAgentVersion": "2.116.0",
+    "instanceNameFormat": "ms-resource:loc.instanceNameFormat",
+    "inputs": [
+      {
+        "name": "secureFiles",
+        "type": "secureFile",
+        "label": "ms-resource:loc.input.label.secureFiles",
+        "defaultValue": "",
+        "required": true,
+        "helpMarkDown": "ms-resource:loc.input.help.secureFiles"
+      },
+      {
+        "name": "retryCount",
+        "type": "string",
+        "label": "ms-resource:loc.input.label.retryCount",
+        "defaultValue": "5",
+        "required": "false",
+        "helpMarkDown": "ms-resource:loc.input.help.retryCount"
+      }
+    ],
+    "outputVariables": [
+      {
+        "name": "secureFilePaths",
+        "description": "The location of the secure files that was downloaded separated by comma separated values."
+      }
+    ],
+    "execution": {
+      "Node": {
+        "target": "preDownloadMultipleSecureFiles.js"
+      }
+    },
+    "messages": {}
+  }
