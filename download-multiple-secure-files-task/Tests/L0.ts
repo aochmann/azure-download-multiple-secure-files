@@ -102,20 +102,5 @@ describe('DownloadMultipleSecureFile Suite', () => {
       );
       assert(taskRunner.succeeded, 'task should have succeeded');
     });
-
-    it('New Line Delimiter: download secure files', () => {
-      const taskPath: string = path.join(__dirname, 'L0MultipleFilesNewLineDelimiter.js');
-      const taskRunner: MockTestRunner = new MockTestRunner(taskPath, taskJsonPath);
-
-      taskRunner.run();
-
-      assert(
-        taskRunner.stdOutContained(
-          '##vso[task.setvariable variable=secureFilePaths;issecret=false;]/build/temp/single-secure-file-0.filename,/build/temp/single-secure-file-1.filename'
-        ),
-        'task should have set output variable with file paths'
-      );
-      assert(taskRunner.succeeded, 'task should have succeeded');
-    });
   });
 }).timeout(taskTestTimeout);

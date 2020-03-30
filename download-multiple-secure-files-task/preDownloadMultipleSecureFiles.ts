@@ -3,7 +3,6 @@ import * as tl from 'azure-pipelines-task-lib/task';
 import * as secureFilesCommon from 'securefiles-common/securefiles-common';
 
 const commaDelimiter: string = ',';
-const newLineDelimiter: string = '\n';
 
 const main = async () => {
   try {
@@ -32,19 +31,12 @@ const getRetryCount = (): number => {
 };
 
 const getSecureFiles = (): Array<string> => {
-  let secureFiles: Array<string> = getSecureFilesWithNewLineDelimiter();
-
-  secureFiles = hasCommaSeparatedValues(secureFiles) ? getSecureFilesWithCommaDelimiter() : secureFiles;
+  const secureFiles: Array<string> = getSecureFilesWithCommaDelimiter();
 
   return getSecureFilePathsWithoutWhitespace(secureFiles);
 };
 
-const getSecureFilesWithNewLineDelimiter = (): Array<string> => tl.getDelimitedInput('secureFiles', newLineDelimiter, true);
-
 const getSecureFilesWithCommaDelimiter = (): Array<string> => tl.getDelimitedInput('secureFiles', commaDelimiter, true);
-
-const hasCommaSeparatedValues = (secureFiles: Array<string>): boolean =>
-  secureFiles !== null && (secureFiles.length <= 0 || (secureFiles.length == 1 && secureFiles[0].includes(commaDelimiter)));
 
 const getSecureFilePathsWithoutWhitespace = (secureFilesPath: Array<string>): Array<string> => secureFilesPath.map(secureFilePath => secureFilePath.trim());
 
@@ -56,7 +48,6 @@ const downloadSecureFiles = async (secureFiles: Array<string>, retryCount: numbe
 };
 
 const getExistingSecureFile = (secureFilesPath: Array<string>): Array<string> => secureFilesPath.filter(secureFilePath => tl.exist(secureFilePath));
-
 
 const getSecureFilePathsOutput = (secureFilesPath: Array<string>): string => secureFilesPath.join(commaDelimiter);
 

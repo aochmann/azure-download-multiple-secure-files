@@ -28,7 +28,7 @@
       "label": "Secure Files",
       "defaultValue": "",
       "required": true,
-      "helpMarkDown": "The file names or GUID's of the secure files to download into the agent machine. The files will be deleted after the pipeline runs. Each filename needs to be placed in the new line or as comma separated values."
+      "helpMarkDown": "The file names or GUID's of the secure files to download into the agent machine. The files will be deleted after the pipeline runs. Each filename needs to be placed as comma separated values."
     },
     {
       "name": "retryCount",
