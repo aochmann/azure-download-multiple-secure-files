@@ -9,8 +9,8 @@
   "author": "Adrian Ochmann",
   "version": {
     "Major": 1,
-    "Minor": 0,
-    "Patch": 13
+    "Minor": 1,
+    "Patch": 0
   },
   "visibility": ["Build", "Release"],
   "runsOn": [

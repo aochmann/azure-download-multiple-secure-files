@@ -11,9 +11,7 @@
     "noImplicitThis": false,
     "allowJs": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "declaration": false,
-    "declarationDir": null
+    "noUnusedParameters": true
   },
   "include": [
     "./../preDownloadMultipleSecureFiles.ts",
