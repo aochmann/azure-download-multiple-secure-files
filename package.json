@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Azure Pipelines Download Multiple Secure Files Task",
   "scripts": {
-    "package-extension": "tfx extension create --manifests azure-devops-extension.json --output-path Release",
+    "package-extension": "cd download-multiple-secure-files-task && npm run build && cd .. && tfx extension create --manifests azure-devops-extension.json --output-path Release",
     "publish-extension": "tfx extension publish --manifests azure-devops-extension.json"
   },
   "author": "Adrian Ochmann",
