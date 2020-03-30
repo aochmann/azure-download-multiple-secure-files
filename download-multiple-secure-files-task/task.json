@@ -10,15 +10,10 @@
   "version": {
     "Major": 1,
     "Minor": 1,
-    "Patch": 0
+    "Patch": 4
   },
-  "visibility": ["Build", "Release"],
-  "runsOn": [
-    "Agent", 
-    "DeploymentGroup",
-    "Server",
-    "MachineGroup"
-  ],
+  "visibility": ["Build"],
+  "runsOn": ["Agent", "DeploymentGroup", "Server", "MachineGroup"],
   "minimumAgentVersion": "2.116.0",
   "instanceNameFormat": "Download multiple secure files",
   "inputs": [

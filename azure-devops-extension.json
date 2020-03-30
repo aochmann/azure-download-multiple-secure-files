@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "download-multiple-secure-files",
   "name": "Download multiple secure files",
-  "version": "1.1.0",
+  "version": "1.1.4",
   "publisher": "Cogworks",
   "targets": [
     {
